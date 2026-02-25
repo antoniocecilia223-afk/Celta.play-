@@ -1,0 +1,15 @@
+// Carregar dados ao entrar
+window.onload = () => {
+    const savedUser = localStorage.getItem('CeltaUser');
+    if (savedUser) {
+        const data = JSON.parse(savedUser);
+        document.getElementById('auth-overlay').style.display = 'none'; // Pula o login
+        alert("Bem-vindo de volta, " + data.primeiroNome);
+        atualizarInterface(data);
+    }
+};
+
+// Salvar ao criar conta
+function salvarUsuarioCelta(dados) {
+    localStorage.setItem('CeltaUser', JSON.stringify(dados));
+}
